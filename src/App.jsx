@@ -17,7 +17,7 @@ function App() {
                         <Route path="/workshop" component={Workshop} />
                     </Switch>
                 </section>
-                {/* <Footer/> */}
+                <Footer/>
             </Router>
         </div>
     )
