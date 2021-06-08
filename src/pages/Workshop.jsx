@@ -1,8 +1,8 @@
 import React from 'react';
 import Button from '../components/Button/Button'
 import workshop from 'url:../../public/images/workshop.png?&width=990';
-import CardIntro from '../components/Workshop/CardIntro';
-import CardDetail from '../components/Workshop/CardDetail';
+import {CardIntro} from '../components/Card';
+import {CardDetail} from '../components/Card';
 
 const divider = {
     height: '1rem',
