@@ -1,10 +1,15 @@
 import React from 'react';
-import {BrowserRouter as Router, Route,Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
+import Keynotes from './pages/keynote';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 
 function App() {
     return(
     <div>
-        <h1>Hello React</h1>
+        <Navbar />
+        <Keynotes />
+        <Footer />
         <Router>
             <section>
                 
