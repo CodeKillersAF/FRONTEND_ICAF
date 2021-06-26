@@ -27,7 +27,7 @@ export default function Navbar() {
                             <a className="nav-link" href="/">Contact</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">Template</a>
+                            <a className="nav-link" href="/download">Template</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" aria-current="page" href="/signIn">SignIn</a>
