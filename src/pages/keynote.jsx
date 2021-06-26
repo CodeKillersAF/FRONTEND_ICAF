@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Lecture from '../components/keynote/lecture';
+import KeynoteHome from '../components/KeynoteHome/keynotehome';
+import KeynoteSpeaker from '../components/KeynotesSpeaker/keynoteSpeaker';
+
 
 export default class keynote extends Component {
     constructor(props){
@@ -9,7 +11,9 @@ export default class keynote extends Component {
     render() {
         return (
             <div>
-                <Lecture />
+                <KeynoteHome />
+                <KeynoteSpeaker />
+
             </div>
         )
     }
