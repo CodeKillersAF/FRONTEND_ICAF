@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ContactMap from '../components/ContactUsMap/contactusmap';
+import ContactMap from '../components/ContactUsHome/contactushome';
+import ContactDetails from '../components/ContactDetails/contactdetails';
 
 export default class contactus extends Component {
     constructor(props){
@@ -10,6 +11,7 @@ export default class contactus extends Component {
         return (
             <div>
                 <ContactMap />
+                <ContactDetails />
             </div>
         )
     }
