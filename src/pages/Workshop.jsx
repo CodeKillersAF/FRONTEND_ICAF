@@ -27,7 +27,7 @@ export default class Workshop extends React.Component {
                         include a mix of regular papers, invited presentations, and panels that encourage the participation
                         of attendees in active discussion.</p>
                     <img className="container-fluid px-0 d-block mx-auto mb-4" src={workshop} alt="sample" />
-                    <Button className="btn btn-primary btn-md px-4 gap-3" name="Proposal Template" />
+                    {/* <Button className="btn btn-primary btn-md px-4 gap-3" name="Proposal Template" /> */}
                 </CardIntro>
 
                 {/* <div style={divider}></div> */}
