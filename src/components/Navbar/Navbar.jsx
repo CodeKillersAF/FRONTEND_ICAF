@@ -25,7 +25,7 @@ export default function Navbar() {
                             <Link className="nav-link" to="/">Events</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">Contact</Link>
+                            <Link className="nav-link" to="/contact-us">Contact</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/">Template</Link>
