@@ -1,11 +1,12 @@
 import React from 'react';
 import Jumbotron from '../components/Jumbotron/Jumbotron'
 import { Card } from '../components/Card'
+import { CardIntro } from '../components/Card';
 import CardImage from '../components/CardImage/CardImage';
+import About from '../components/About/About';
 import speaker from 'url:../../public/images/speaker.jpg?&width=990';
 import workshop from 'url:../../public/images/workshop.png?&width=990';
 import main from 'url:../../public/images/main.jpg?&height=500';
-import { CardIntro } from '../components/Card';
 import axios from 'axios';
 // import cover from 'url:../../public/videos/cover.mp4';
 
@@ -91,7 +92,7 @@ export default class Home extends React.Component {
                     </div>
 
                     <div className="container py-4">
-                        <div className="row align-items-md-stretch">
+                        {/* <div className="row align-items-md-stretch">
                             <Card
                                 cardclassName="h-100 p-5 text-white bg-dark rounded-3"
                                 title="About"
@@ -107,9 +108,10 @@ export default class Home extends React.Component {
                                 buttonclassName="btn btn-outline-dark"
                                 name="learn more"
                             />
-                        </div>
-                        <div className="p-1 mb-4">
-                        </div>
+                        </div> */}
+
+                        {/* <div className="p-1 mb-4">
+                        </div> */}
 
                         <div className="row mb-2">
                             <CardImage
@@ -133,6 +135,8 @@ export default class Home extends React.Component {
                                 image={workshop}
                             />
                         </div>
+
+                        <About/>
                     </div>
 
                 </main>
