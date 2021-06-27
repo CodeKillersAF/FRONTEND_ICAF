@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import '../ContactUsHome/home.css';
-
+import "../ContactUsHome/home.css";
+import RoomIcon from "@material-ui/icons/Room";
 
 export default class contactdetails extends Component {
   constructor(props) {
@@ -21,8 +21,8 @@ export default class contactdetails extends Component {
               <div className="container">
                 <div className="contactInfo">
                   <div className="box mb-5">
+                    <div className="icon"></div>
                     <div className="text">
-                    <i data-feather="circle"></i>
                       <h3>Address</h3>
                       <p>address details</p>
                     </div>
@@ -107,7 +107,9 @@ export default class contactdetails extends Component {
             </div>
           </div>
         </div>
-      </div>
+
+    </div>
+
     );
   }
 }
