@@ -10,7 +10,7 @@
     text-align: center;
     color: white;
     font-size: 100px;
-    font-style: italic;
+    /* font-style: italic; */
     font-family: "Times New Roman", Times, serif;
   
   }
@@ -18,5 +18,6 @@
   .bottom-left {
     position: absolute;
     bottom: 8px;
+    right: 16px;
     left: 16px;
   }
