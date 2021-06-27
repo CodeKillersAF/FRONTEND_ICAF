@@ -11,7 +11,7 @@ export default class keynotehome extends Component {
       <div>
         <div className="hero-container">
           <div className="homepage" />
-          <h1>Key-Notes</h1>
+          <h1>Keynotes</h1>
           <hr className="hrClass"/>
           <h3>Let's see key-speakers of our conferences..!!</h3>
         </div>
