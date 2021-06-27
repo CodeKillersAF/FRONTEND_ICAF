@@ -1,6 +1,6 @@
 import React from 'react';
 import Jumbotron from '../components/Jumbotron/Jumbotron'
-import {Card} from '../components/Card'
+import { Card } from '../components/Card'
 import CardImage from '../components/CardImage/CardImage';
 import speaker from 'url:../../public/images/speaker.jpg?&width=990';
 import workshop from 'url:../../public/images/workshop.png?&width=990';
@@ -120,7 +120,7 @@ export default class Home extends React.Component {
                                 content="Researchers can take part in the event and selected
                             candidates will be given the oppurtunity to present their Research papers at the
                                         Conference"
-                                link="Continue"
+                                link="/keynote"
                                 image={speaker}
                             />
                             <CardImage
@@ -129,7 +129,7 @@ export default class Home extends React.Component {
                                 date="Dec 11"
                                 content="Industry experts will organize workshops on latest trends in
                                         Application Framework."
-                                link="Continue"
+                                link="/workshop"
                                 image={workshop}
                             />
                         </div>
