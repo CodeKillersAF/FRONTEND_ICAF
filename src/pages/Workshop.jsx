@@ -30,7 +30,7 @@ export default class Workshop extends React.Component {
                     <Button className="btn btn-primary btn-md px-4 gap-3" name="Proposal Template" />
                 </CardIntro>
 
-                <div style={divider}></div>
+                {/* <div style={divider}></div> */}
 
                 <CardDetail title="WORKSHOP PROPOSAL FORMAT" subtitle="EACH WORKSHOP PROPOSAL (MAXIMUM 5 PAGES) MUST INCLUDE (PLEASE FOLLOW THE FOLLOWING ORDER IN YOUR PROPOSAL)">
                     <ul>
@@ -59,7 +59,7 @@ export default class Workshop extends React.Component {
                     </ul>
                 </CardDetail>
 
-                <div style={divider}></div>
+                {/* <div style={divider}></div> */}
 
                 <CardDetail title="WORKSHOP PREPARATION AND ORGANIZATION TIMELINE">
                     <ul>
@@ -72,7 +72,7 @@ export default class Workshop extends React.Component {
                     </ul>
                 </CardDetail>
 
-                <div style={divider}></div>
+                {/* <div style={divider}></div> */}
 
                 <CardDetail title="PROPOSALS WILL BE EVALUATED BASED ON THESE CRITERIA">
                     <ul>
