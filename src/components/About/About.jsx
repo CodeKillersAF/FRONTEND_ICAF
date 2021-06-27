@@ -44,56 +44,57 @@ export default class About extends React.Component {
 
                     <div className="row mb-2">
                         <div className="col-md-6">
-                            <h5 className="fw-bold text-center">AI / ML</h5>
-                            <h7 className="text-center">Machine Learning</h7><br/>
-                            <h7 className="text-center">Deep Learning</h7><br/>
-                            <h7 className="text-center">Mathematical modelling</h7><br/>
-                            <h7 className="text-center">Optimizations</h7><br/>
+                            <h5 className="fw-bold text-center">React.js</h5>
+                            <h7 className="text-center">Function level components</h7><br />
+                            <h7 className="text-center">Class level components</h7><br />
+                            <h7 className="text-center">State and lifecycyle</h7><br />
+                            <h7 className="text-center">Conditional rendering</h7><br />
+                            <h7 className="text-center">Lifting state up and real time projects</h7><br />
 
                         </div>
                         <div className="col-md-6">
-                            <h5 className="fw-bold text-center">AI / ML</h5>
-                            <h7 className="text-center">Machine Learning</h7><br/>
-                            <h7 className="text-center">Deep Learning</h7><br/>
-                            <h7 className="text-center">Mathematical modelling</h7><br/>
-                            <h7 className="text-center">Optimizations</h7><br/>
+                            <h5 className="fw-bold text-center">Angular.js</h5>
+                            <h7 className="text-center">Function level components</h7><br />
+                            <h7 className="text-center">Class level components</h7><br />
+                            <h7 className="text-center">State and lifecycyle</h7><br />
+                            <h7 className="text-center">Conditional rendering</h7><br />
+                            <h7 className="text-center">Lifting state up and real time projects</h7><br />
                         </div>
                     </div>
-                    <br/>
+                    <br />
                     <div className="row mb-2">
                         <div className="col-md-6">
-                            <h5 className="fw-bold text-center">AI / ML</h5>
-                            <h7 className="text-center">Machine Learning</h7><br/>
-                            <h7 className="text-center">Deep Learning</h7><br/>
-                            <h7 className="text-center">Mathematical modelling</h7><br/>
-                            <h7 className="text-center">Optimizations</h7><br/>
+                            <h5 className="fw-bold text-center">Spring Boot</h5>
+                            <h7 className="text-center">Gradle and Maven</h7><br />
+                            <h7 className="text-center">Dependencies</h7><br />
+                            <h7 className="text-center">Application of microservices</h7><br />
+                            <h7 className="text-center">MVC architecture</h7><br />
 
                         </div>
                         <div className="col-md-6">
-                            <h5 className="fw-bold text-center">AI / ML</h5>
-                            <h7 className="text-center">Machine Learning</h7><br/>
-                            <h7 className="text-center">Deep Learning</h7><br/>
-                            <h7 className="text-center">Mathematical modelling</h7><br/>
-                            <h7 className="text-center">Optimizations</h7><br/>
+                            <h5 className="fw-bold text-center">Koa.js</h5>
+                            <h7 className="text-center">Routing and standard patterns</h7><br />
+                            <h7 className="text-center">Middlewares</h7><br />
+                            <h7 className="text-center">Building RESTful API endpoints</h7><br />
+                            <h7 className="text-center">MVC architecture</h7><br />
                         </div>
                     </div>
 
-                    <br/>
+                    <br />
                     <div className="row mb-2">
                         <div className="col-md-6">
-                            <h5 className="fw-bold text-center">AI / ML</h5>
-                            <h7 className="text-center">Machine Learning</h7><br/>
-                            <h7 className="text-center">Deep Learning</h7><br/>
-                            <h7 className="text-center">Mathematical modelling</h7><br/>
-                            <h7 className="text-center">Optimizations</h7><br/>
-
+                            <h5 className="fw-bold text-center">Laravel</h5>
+                            <h7 className="text-center">Routing and standard patterns</h7><br />
+                            <h7 className="text-center">Middlewares</h7><br />
+                            <h7 className="text-center">API endpoints</h7><br />
+                            <h7 className="text-center">MVC architecture</h7><br />
                         </div>
                         <div className="col-md-6">
-                            <h5 className="fw-bold text-center">AI / ML</h5>
-                            <h7 className="text-center">Machine Learning</h7><br/>
-                            <h7 className="text-center">Deep Learning</h7><br/>
-                            <h7 className="text-center">Mathematical modelling</h7><br/>
-                            <h7 className="text-center">Optimizations</h7><br/>
+                            <h5 className="fw-bold text-center">ASP.NET</h5>
+                            <h7 className="text-center">Routing and standard patterns</h7><br />
+                            <h7 className="text-center">Middlewares</h7><br />
+                            <h7 className="text-center">API endpoints</h7><br />
+                            <h7 className="text-center">MVC architecture</h7><br />
                         </div>
                     </div>
                     <p className="card-text"></p>
