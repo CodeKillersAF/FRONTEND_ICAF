@@ -21,18 +21,19 @@ export default function Navbar() {
                         <li className="nav-item">
                             <Link className="nav-link" to="/workshop">Workshop</Link>
                         </li>
-                        <li className="nav-item">
+                       <li className="nav-item">
                             <Link className="nav-link" to="/research">Research</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/download">Download</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/">Contact</Link>
+                        <li className="nav-item">                      
+                             <Link className="nav-link" to="/contact-us">Contact</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" aria-current="page" to="/register">Register</Link>
                         </li>
+                       
                     </ul>
                 </div>
                 {/* <div className="d-flex">
