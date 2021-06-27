@@ -22,19 +22,16 @@ export default function Navbar() {
                             <Link className="nav-link" to="/workshop">Workshop</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">Events</Link>
+                            <Link className="nav-link" to="/research">Research</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/download">Download</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/">Contact</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/download">Template</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" aria-current="page" to="/signIn">SignIn</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/signUp">SignUp</Link>
+                            <Link className="nav-link" aria-current="page" to="/register">Register</Link>
                         </li>
                     </ul>
                 </div>
