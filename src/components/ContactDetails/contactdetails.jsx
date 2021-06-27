@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "../ContactUsHome/home.css";
 import RoomIcon from "@material-ui/icons/Room";
+import EmailIcon from '@material-ui/icons/Email';
+import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 export default class contactdetails extends Component {
   constructor(props) {
@@ -20,31 +23,42 @@ export default class contactdetails extends Component {
               </div>
               <div className="container">
                 <div className="contactInfo">
-                  <div className="box mb-5">
-                    <div className="icon"></div>
+                  <div className="box">
+                    <div className="icon"><RoomIcon /></div>
                     <div className="text">
                       <h3>Address</h3>
-                      <p>address details</p>
+                      <p>SLIIT Malabe Campus, New Kandy Rd, Malabe 10115</p>
                     </div>
                   </div>
 
-                  <div className="box mb-5">
+                
+                  <div className="box">
+                  <div className="icon"><EmailIcon /></div>
+                  <div className="text">
                       <h3>Email</h3>
-                      <p>our email</p>
+                      <p>icaf2021@sliit.lk</p>
+                    </div>
                   </div>
 
-                  <div className="box mb-5">
+                  <div className="box">
+                  <div className="icon"><ContactPhoneIcon /></div>
+                  <div className="text">
                       <h3>Contact Number</h3>
-                      <p>contact number</p>
+                      <p>+94 11 754 4801, +94 11 241 3901</p>
+                    </div>
                   </div>
 
-                  <div className="box mb-5">
-                      <h3>Other</h3>
-                      <p>other details</p>
+                  <div className="box">
+                  <div className="icon"><LinkedInIcon /></div>
+                  <div className="text">
+                      <h3>Linked In</h3>
+                      <p>sliit.linked-in./linked-in/sliit</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
             <div class="col">
               <div className="contactForm">
                 <div class="mb-4">
