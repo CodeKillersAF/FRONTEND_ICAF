@@ -43,14 +43,13 @@
 }
 
 .contactForm{
-    background-color: rgb(250, 232, 232);
+    background-color: #F8F9FA;
     padding: 20px;
     color: rgb(10, 10, 10);
     font-weight: bold;
 }
 
-.contactInfo{
-    background-color: #f5f6f8;
+.contactInfo{   
     padding: 15px;
     margin-bottom: 50px;
     color: rgb(249, 249, 250);
