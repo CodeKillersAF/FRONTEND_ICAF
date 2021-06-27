@@ -26,8 +26,8 @@ function keynoteSpeaker() {
                 <section className="keynote">
 
                     <div className="container text-center">
-                        <h1><b>Our Key-note Speakers</b></h1>
-                        <p>Lots of speakers are share there knowledge</p>
+                        <h1><b>Our Keynote Speakers</b></h1>
+                        <p>Lots of speakers share their knowledge</p>
 
                         <div className="row">
                             {keynote.map((speaker) => (
