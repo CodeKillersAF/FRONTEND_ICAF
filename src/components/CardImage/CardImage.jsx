@@ -13,7 +13,7 @@ export default function CardImage(props) {
                         <h3 className="mb-0">{props.title}</h3>
                         <div className="mb-1 text-muted">{props.date}</div>
                         <p className="card-text mb-auto">{props.content}</p>
-                        <a href="#" className="stretched-link">{props.link}</a>
+                        <a href={props.link} className="stretched-link">Continue</a>
                     </div>
                     <div className="col-auto d-none d-lg-block">
                         <img className="container-fluid" src={props.image} alt="sample" />
