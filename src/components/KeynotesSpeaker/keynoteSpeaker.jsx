@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function keynoteTest() {
+function keynoteSpeaker() {
 
     const [keynote, setKeynotes] = useState([
         {
@@ -53,4 +53,4 @@ function keynoteTest() {
     )
 }
 
-export default keynoteTest
+export default keynoteSpeaker
