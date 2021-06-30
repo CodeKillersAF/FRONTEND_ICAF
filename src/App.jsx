@@ -15,7 +15,7 @@ function App() {
                         <Route path="/" component={Home} exact />
                     </Switch>
                 </section>
-                {/* <Footer/> */}
+                <Footer/>
             </Router>
         </div>
     )
