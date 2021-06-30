@@ -1,24 +1,22 @@
-import React, { useState } from 'react';
+import axios from '../../axios';
+import React, { useState,useEffect } from 'react';
 
 function keynoteSpeaker() {
+    const [keynote, setKeynotes] = useState([]);
 
-    const [keynote, setKeynotes] = useState([
-        {
-            name: "Speaker 1",
-            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM5iEj1qbLA8v0RsIuKWCxEN5Jo54thBUeDA&usqp=CAU",
-            position: "position 1",
-        },
-        {
-            name: "Speaker 2",
-            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM5iEj1qbLA8v0RsIuKWCxEN5Jo54thBUeDA&usqp=CAU",
-            position: "position 2",
-        },
-        {
-            name: "Speaker 3",
-            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM5iEj1qbLA8v0RsIuKWCxEN5Jo54thBUeDA&usqp=CAU",
-            position: "position 3",
-        }
-    ]);
+    async function fetchData(){
+        await axios.get('/keynotes/get-approved-keynotes')
+        .then((response)=>{
+            
+            setKeynotes(response.data.data);
+        })
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, [])
+
+    
 
     return (
         <div>
@@ -34,12 +32,13 @@ function keynoteSpeaker() {
 
                             <div className="col-lg-4 col-md-4 col-sm-10 col-12 d-block m-auto">
                                 <figure className="figure">
-                                    <img src={speaker.url}
+                                    <img src={speaker.speakerImageUrl}
                                       className="rounded-circle" height="200px" width="200px" />
 
                                       <figcaption>
-                                          <h2>{speaker.name}</h2>
+                                          <h2>{speaker.speakerName}</h2>
                                           <p className="figure-caption">{speaker.position}</p>
+                                          <p className="figure-caption">{speaker.description}</p>
                                       </figcaption>
                                 </figure>
                             </div>
