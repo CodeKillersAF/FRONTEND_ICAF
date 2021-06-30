@@ -7,6 +7,8 @@ import Footer from './components/Footer/Footer';
 import Workshop from './pages/Workshop';
 import Download from './pages/Download';
 import ContactUs from './pages/contactus';
+import ResearchPaper from './pages/ReseachPaper';
+import Register from './pages/RegisterAttendee';
 
 function App() {
     return (
@@ -19,6 +21,8 @@ function App() {
                         <Route path="/workshop" component={Workshop} />
                         <Route path="/download" component={Download} />
                         <Route path="/contact-us" component={ContactUs} />
+                        <Route path="/research" component={ResearchPaper} />
+                        <Route path="/register" component={Register} />
                     </Switch>
                 </section>     
                 <Footer/>
