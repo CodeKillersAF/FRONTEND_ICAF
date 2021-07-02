@@ -1,38 +1,40 @@
-import React , {useState} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
-const RegisterFormAttendee = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email,setEmail]  = useState('');
-  const [phone, setPhone] = useState('');
-  const [participate, setParticipate] = useState('')
 
-  const handleSubmit = (e) => {
-
-    e.preventDefault();
+const WorkShopRegForm = () => {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone , setPhone] = useState('');
 
     let data = {
-      first_name: firstName,
-      last_name : lastName,
-      email: email,
-      phone: phone,
-      date: participate
-    };
+        first_name: firstName,
+        last_name: lastName,
+        email: email,
+        phone: phone
+    }
 
-    axios.post("http://localhost:8080/api/attendee/add-attendee",data)
-    .then( response => {
-      console.log(response.data.data)
-    })
-    .catch( error => {
-      console.log({error: error.message})
-    })
+    const handleSubmit = (e) => {
+           
+        e.preventDefault()
 
-  }
+        axios.post("http://localhost:8080/api/work-shop-conductor/add-workshopconductor",data)
+        .then(response => {
+            console.log(response.data.data);
+        })
+        .catch(error => {
+            console.log({error: error.message});
+        })
+
+        console.log(data);
+    }
 
   return (
     <div className="container">
-       <center><h4>Register Here...</h4></center>
+      <center>
+        <h4>Register Here...</h4>
+      </center>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">
@@ -44,8 +46,7 @@ const RegisterFormAttendee = () => {
             id="firstname"
             name="firstname"
             value={firstName}
-            onChange = { e => setFirstName(e.target.value)}
-            
+            onChange={(e) => setFirstName(e.target.value)}
           />
         </div>
         <div className="mb-3">
@@ -58,8 +59,7 @@ const RegisterFormAttendee = () => {
             id="lastname"
             name="lastname"
             value={lastName}
-            onChange={e => setLastName(e.target.value)}
-
+            onChange={(e) => setLastName(e.target.value)}
           />
         </div>
         <div className="mb-3">
@@ -72,7 +72,7 @@ const RegisterFormAttendee = () => {
             id="email"
             name="email"
             value={email}
-            onChange={ e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="mb-3">
@@ -86,24 +86,9 @@ const RegisterFormAttendee = () => {
             name="phone"
             value={phone}
             pattern="[0-9]{10}"
-            onChange = { e => setPhone(e.target.value)}
+            onChange={(e) => setPhone(e.target.value)}
           />
         </div>
-        <div className="mb-3">
-          <label for="exampleInputEmail1" className="form-label">
-            Participate at
-          </label>
-          <input 
-          type="date"  
-          className = "form-control" 
-          id="participate" 
-          name="participate" 
-          value={participate}
-          onChange={ e => setParticipate(e.target.value)}
-          />
-        </div>
-
-        
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
@@ -112,4 +97,4 @@ const RegisterFormAttendee = () => {
   );
 };
 
-export default RegisterFormAttendee;
+export default WorkShopRegForm;
