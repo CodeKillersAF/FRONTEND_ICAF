@@ -3,6 +3,7 @@ import Button from '../components/Button/Button'
 import workshop from 'url:../../public/images/workshop.png?&width=990';
 import { CardIntro } from '../components/Card';
 import { CardDetail } from '../components/Card';
+import axios from '../axios';
 
 const divider = {
     height: '1rem',
@@ -12,9 +13,37 @@ const divider = {
     boxShadow: 'inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15)'
 }
 export default class Workshop extends React.Component {
+
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {
+            conference_detail: [],
+            approved_details: []
+        }
     }
+    componentDidMount() {
+        axios.get('/conference-detail')
+            .then(response => {
+                this.setState({ conference_detail: response.data.data }, () => {
+                    let data = [];
+                    this.state.conference_detail.map((item, index) => {
+                        let conference_details = {
+                            value: item._id,
+                            venue: item.venue,
+                            venue_dates: item.venue_dates,
+                            venue_time: item.venue_time,
+                            registrationopen_date: item.registrationopen_date,
+                            lastregistration_date: item.lastregistration_date
+                        }
+                        if (item.is_approved) {
+                            data.push(conference_details)
+                        }
+                    });
+                    this.setState({ approved_details: data });
+                })
+            })
+    }
+
 
     render() {
         return (
@@ -31,6 +60,16 @@ export default class Workshop extends React.Component {
                 </CardIntro>
 
                 {/* <div style={divider}></div> */}
+                <div>
+                    {this.state.approved_details.length > 0 && this.state.approved_details.map((item, index) => (
+                        <div key={index} >
+                            <div className="p-3 back" >
+                                <h2 className="display-5 fw-bold">{item.registrationopen_date}</h2>
+                                <h2 className="display-5 fw-bold">{item.lastregistration_date}</h2>
+                            </div>
+                        </div>
+                    ))}
+                </div>
 
                 <CardDetail title="WORKSHOP PROPOSAL FORMAT" subtitle="EACH WORKSHOP PROPOSAL (MAXIMUM 5 PAGES) MUST INCLUDE (PLEASE FOLLOW THE FOLLOWING ORDER IN YOUR PROPOSAL)">
                     <ul>
