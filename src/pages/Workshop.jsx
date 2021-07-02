@@ -1,9 +1,9 @@
 import React from 'react';
-import Button from '../components/Button/Button'
 import workshop from 'url:../../public/images/workshop.png?&width=990';
 import { CardIntro } from '../components/Card';
 import { CardDetail } from '../components/Card';
 import axios from '../axios';
+import '../components/Jumbotron/Jumbotron.css';
 
 const divider = {
     height: '1rem',
@@ -48,6 +48,9 @@ export default class Workshop extends React.Component {
     render() {
         return (
             <>
+                <div className="back">
+                    <img className="container-fluid px-0" src={workshop} alt="sample" />
+                </div>
                 <CardIntro title="Call for Workshop Proposal">
                     <p className="lead mb-4">In addition to exciting technical presentations, tutorials, ICAF 2021 will feature a series of 3 hours of
                         workshop. We invite the submission of workshop proposals. The aim of the conference workshops is to
@@ -55,7 +58,7 @@ export default class Workshop extends React.Component {
                         current topics related to technical and business issues in communications and networking, and should
                         include a mix of regular papers, invited presentations, and panels that encourage the participation
                         of attendees in active discussion.</p>
-                    <img className="container-fluid px-0 d-block mx-auto mb-4" src={workshop} alt="sample" />
+                    {/* <img className="container-fluid px-0 d-block mx-auto mb-4" src={workshop} alt="sample" /> */}
                     {/* <Button className="btn btn-primary btn-md px-4 gap-3" name="Proposal Template" /> */}
                 </CardIntro>
 
