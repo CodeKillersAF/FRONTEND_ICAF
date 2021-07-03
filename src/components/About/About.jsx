@@ -1,24 +1,81 @@
 import React from 'react'
+import axios from 'axios';
 
-export default function About(props) {
-    return (
-        <div className="text-center">
+export default class About extends React.Component {
 
-            <h3 className="display-6 fw-bold text-success">{props.title}</h3>
-            <div className="card-body">
-                <h4 className="card-title text-secondary">{props.subtitle}</h4>
-                <p className="card-text">The International conference on application framework -2021 (ICAF2021) is organized
-                by the Faculty of Computing of the Sri Lanka Institute of Information Technology (SLIIT) as an
-                open forum for academics along with industry professionals to present the latest findings and
-                research output and practical deployments in the Applications Framework, Computer Science and Information Technology
-                domains. Primary objective of the ICAF is to uplift the research culture and the quality of
-                research done by Sri Lankan researchers. This conference will create a platform for national
-                and international researchers to showcase their research output, networking opportunities to
-                discuss innovative ideas, and initiate collaborative work. ICAF 2019 and ICAF 2020 were successfully
-                conducted with a technical co-sponsorship by IEEE Sri Lanka Section and all publications are available
-                                  in IEEE Xplore digital library</p>
+    constructor(props) {
+        super(props);
+
+    }
+
+    render() {
+        return (
+            <div className="text-center">
+
+                <h3 className="display-6 fw-bold text">Events</h3>
+                <div className="card-body">
+                    <h4 className="card-title text-secondary"></h4>
+
+                    <div className="row mb-2">
+                        <div className="col-md-6">
+                            <h5 className="fw-bold text-center">React.js</h5>
+                            <h6 className="text-center">Function level components</h6>
+                            <h6 className="text-center">Class level components</h6>
+                            <h6 className="text-center">State and lifecycyle</h6>
+                            <h6 className="text-center">Conditional rendering</h6>
+                            <h6 className="text-center">Lifting state up and real time projects</h6>
+
+                        </div>
+                        <div className="col-md-6">
+                            <h5 className="fw-bold text-center">Angular.js</h5>
+                            <h6 className="text-center">Function level components</h6>
+                            <h6 className="text-center">Class level components</h6>
+                            <h6 className="text-center">State and lifecycyle</h6>
+                            <h6 className="text-center">Conditional rendering</h6>
+                            <h6 className="text-center">Lifting state up and real time projects</h6>
+                        </div>
+                    </div>
+                    <br />
+                    <div className="row mb-2">
+                        <div className="col-md-6">
+                            <h5 className="fw-bold text-center">Spring Boot</h5>
+                            <h6 className="text-center">Gradle and Maven</h6>
+                            <h6 className="text-center">Dependencies</h6>
+                            <h6 className="text-center">Application of microservices</h6>
+                            <h6 className="text-center">MVC architecture</h6>
+
+                        </div>
+                        <div className="col-md-6">
+                            <h5 className="fw-bold text-center">Koa.js</h5>
+                            <h6 className="text-center">Routing and standard patterns</h6>
+                            <h6 className="text-center">Middlewares</h6>
+                            <h6 className="text-center">Building RESTful API endpoints</h6>
+                            <h6 className="text-center">MVC architecture</h6>
+                        </div>
+                    </div>
+
+                    <br />
+                    <div className="row mb-2">
+                        <div className="col-md-6">
+                            <h5 className="fw-bold text-center">Laravel</h5>
+                            <h6 className="text-center">Routing and standard patterns</h6>
+                            <h6 className="text-center">Middlewares</h6>
+                            <h6 className="text-center">API endpoints</h6>
+                            <h6 className="text-center">MVC architecture</h6>
+                        </div>
+                        <div className="col-md-6">
+                            <h5 className="fw-bold text-center">ASP.NET</h5>
+                            <h6 className="text-center">Routing and standard patterns</h6>
+                            <h6 className="text-center">Middlewares</h6>
+                            <h6 className="text-center">API endpoints</h6>
+                            <h6 className="text-center">MVC architecture</h6>
+                        </div>
+                    </div>
+                    <p className="card-text"></p>
+
+                </div>
+
             </div>
-
-        </div>
-    )
+        )
+    }
 }
