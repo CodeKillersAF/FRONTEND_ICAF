@@ -9,7 +9,7 @@ export default class keynotehome extends Component {
   render() {
     return (
       <div>
-        <div className="hero-container">
+        <div className="keynote-hero-container">
           <div className="homepage" />
           <h1>Keynotes</h1>
           <hr className="hrClass"/>

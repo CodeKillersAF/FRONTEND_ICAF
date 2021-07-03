@@ -6,7 +6,7 @@
     z-index: -1;
 }
 
-.hero-container {
+.keynote-hero-container {
     background: url('https://live.staticflickr.com/1920/29913654857_f130040b7a_b.jpg') center center/cover no-repeat;
     height: 100vh;
     width: 100%;
@@ -19,14 +19,14 @@
 }
 
 
-.hero-container > h1 {
+.keynote-hero-container > h1 {
     color: rgb(250, 251, 252);
     font-size: 80px;
     font-weight: bold;
 }
 
 
-.hero-container > h3 {
+.keynote-hero-container > h3 {
     color: rgb(250, 251, 252);
     font-size: 40px;
     font-weight: bold;
