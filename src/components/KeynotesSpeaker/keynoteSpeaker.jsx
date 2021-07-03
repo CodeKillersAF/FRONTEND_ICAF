@@ -2,11 +2,15 @@ import axios from "../../axios";
 import React, { useState, useEffect } from "react";
 
 function keynoteSpeaker() {
-  const [keynote, setKeynotes] = useState([]);
+  const [keynotes, setKeynotes] = useState([]);
 
+  useEffect(() => {
+    fetchData();
+  })
   async function fetchData() {
     await axios.get("/keynotes/get-approved-keynotes").then((response) => {
       setKeynotes(response.data.data);
+      console.log(response.data.data);
     });
   }
 
@@ -27,37 +31,37 @@ function keynoteSpeaker() {
         </h1>
         </div>
         </div>
+        {keynotes.map((keynote)=>(
           <div class="text-center">
             <div class="header">
             </div>
             {/* <div class="card-body"> */}
             <br />
+            
               <h5 class="card-title">
-                <b>Lecturer Name</b> 
+                <b>{keynote.speakerName}</b> 
               </h5>
               <img
-                src="https://i.ibb.co/ZhFKQ1H/lecturer.jpg"
+                src={keynote.speakerImageUrl}
                 class="rounded-circle"
                 width="200px"
                 height="200px"
                 alt="..."
               ></img><br />
-              <b>Position</b><br />
+              
+              <b>{keynote.position}</b><br />
 
               <p class="card-text">
-                So, as is our hallowed duty as a literary and culture
-                website—though with full awareness of the potentially fruitless
-                and endlessly contestable nature of the task—in the coming
-                weeks.So, as is our hallowed duty as a literary and culture
-                website—though with full awareness of the potentially fruitless
-                and endlessly contestable nature of the task—in the coming
-                weeks.
+                {keynote.description}
               </p>
               <br /><br /><br />
+              
             </div>
+            ))}
           {/* </div> */}
           {/* </section> */}
           </div>
+          
     </div>
   );
 }

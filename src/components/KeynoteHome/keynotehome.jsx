@@ -13,7 +13,7 @@ export default class keynotehome extends Component {
           <div className="homepage" />
           <h1>Keynotes</h1>
           <hr className="hrClass"/>
-          <h3>Let's see key-speakers of our conferences..!!</h3>
+          <h3>Let's see keynotes of our conferences..!!</h3>
         </div>
       </div>
     );
