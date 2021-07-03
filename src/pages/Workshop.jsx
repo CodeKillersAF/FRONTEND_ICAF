@@ -2,8 +2,10 @@ import React from 'react';
 import workshop from 'url:../../public/images/workshop.png?&width=990';
 import { CardIntro } from '../components/Card';
 import { CardDetail } from '../components/Card';
+import WorkShopRegForm from '../components/WorkShopRegForm/workshopRegForm';
 import axios from '../axios';
 import '../components/Jumbotron/Jumbotron.css';
+
 
 const divider = {
     height: '1rem',
@@ -127,7 +129,7 @@ export default class Workshop extends React.Component {
                         <li>Letters of support from colleagues / researchers indicating their interest and intent to participate in this workshop.</li>
                     </ul>
                 </CardDetail>
-
+                 <WorkShopRegForm />
             </>
         )
     }
