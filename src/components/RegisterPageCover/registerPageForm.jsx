@@ -1,12 +1,17 @@
 import React , {useState} from 'react';
 import axios from 'axios';
+import { storage } from "../../firebase";
 
 const RegisterFormAttendee = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email,setEmail]  = useState('');
   const [phone, setPhone] = useState('');
-  const [participate, setParticipate] = useState('')
+  const [participate, setParticipate] = useState('');
+
+  const [file, setFile] = useState(null);
+  const [imgAsUrl, setImgAsUrl] = useState("");
+  const [imgUpLoaded, setImgUploaded] = useState(false);
 
   const handleSubmit = (e) => {
 
@@ -17,8 +22,11 @@ const RegisterFormAttendee = () => {
       last_name : lastName,
       email: email,
       phone: phone,
-      date: participate
+      date: participate,
+      bank_slip_url : imgAsUrl
     };
+
+    console.log(data);
 
     axios.post("http://localhost:8080/api/attendee/add-attendee",data)
     .then( response => {
@@ -27,6 +35,41 @@ const RegisterFormAttendee = () => {
     .catch( error => {
       console.log({error: error.message})
     })
+
+  }
+
+  const onFileSelect = (e) => {
+    setFile(e.target.files[0]);
+    console.log('file selected');
+  }
+
+  async function uploadFile(e) {
+    e.preventDefault()
+    let bucketName = "bankSlips";
+    let uploadTask = storage.ref(`${bucketName}/${file.name}`).put(file);
+    await uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        console.log(snapshot);
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+       storage
+        .ref("bankSlips")
+        .child(file.name)
+        .getDownloadURL()
+        .then((firebaseURL) => {
+          setImgAsUrl(firebaseURL);
+          console.log(imgAsUrl);
+          if(imgAsUrl != ''){
+            setImgUploaded(true);
+          }
+         console.log(imgUpLoaded);
+        })
+      }
+    )
 
   }
 
@@ -102,11 +145,25 @@ const RegisterFormAttendee = () => {
           onChange={ e => setParticipate(e.target.value)}
           />
         </div>
-
+        <div className="mb-3">
+          <label for="exampleInputEmail" className="form-label">
+            Upload Workshop Praposal
+          </label>
+          <div class="custom-file">
+            <input
+              type="file"
+              className="custom-file-input"
+              onChange={onFileSelect}
+              required
+            />
+          </div>
+          <button className="btn btn-primary" onClick = { uploadFile }  >
+            Upload File...
+          </button>
+        </div>
         
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
+        {imgUpLoaded && <button type="submit" className="btn btn-primary" > Submit </button>}
+        {!imgUpLoaded && <button type="submit" className="btn btn-primary" disabled> Submit </button>}
       </form>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import { storage } from "../../../firebase";
 
 const RegisterForm = () => {
 
@@ -7,6 +8,10 @@ const RegisterForm = () => {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
+
+    const [file, setFile] = useState(null);
+    const [pdfAsUrl, setPdfAsUrl] = useState("");
+    const [pdfUpLoaded, setPdfUploaded] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -16,10 +21,10 @@ const RegisterForm = () => {
             last_name: lastName,
             email: email,
             phone: phone,
-            is_approved: false
+            researchPaper_url: pdfAsUrl
         }
 
-        axios.post("http://localhost:8000/api/research-paper-publisher/add-research-paper-publisher",data)
+        axios.post("http://localhost:8080/api/research-paper-publisher/add-research-paper-publisher",data)
         .then(response => {
             console.log(response.data.data);
         })
@@ -27,6 +32,41 @@ const RegisterForm = () => {
             console.log({error: error.message});
         })
     }
+
+    const onFileSelect = (e) => {
+      setFile(e.target.files[0]);
+      console.log('file selected');
+  }
+
+  async function uploadFile(e) {
+    e.preventDefault()
+    let bucketName = "researchPaper";
+    let uploadTask = storage.ref(`${bucketName}/${file.name}`).put(file);
+    await uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        console.log(snapshot);
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+       storage
+        .ref("researchPaper")
+        .child(file.name)
+        .getDownloadURL()
+        .then((firebaseURL) => {
+          setPdfAsUrl(firebaseURL);
+          console.log(pdfAsUrl);
+          if(pdfAsUrl != ''){
+            setPdfUploaded(true);
+          }
+         console.log(pdfUpLoaded);
+        })
+      }
+    )
+
+  }
 
   return (
     <div className="container">
@@ -87,9 +127,24 @@ const RegisterForm = () => {
             pattern="[0-9]{10}"
           />
         </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
+        <div className="mb-3">
+          <label for="exampleInputEmail" className="form-label">
+            Upload Research Paper
+          </label>
+          <div class="custom-file">
+            <input
+              type="file"
+              className="custom-file-input"
+              onChange={onFileSelect}
+              required
+            />
+          </div>
+          <button className="btn btn-primary" onClick = { uploadFile }  >
+            Upload File...
+          </button>
+        </div>
+        {pdfUpLoaded && <button type="submit" className="btn btn-primary" > Submit </button>}
+        {!pdfUpLoaded && <button type="submit" className="btn btn-primary" disabled> Submit </button>}
       </form>
     </div>
   );
