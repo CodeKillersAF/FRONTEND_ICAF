@@ -44,6 +44,7 @@ const WorkShopRegForm = () => {
       )
       .then((response) => {
         console.log(response.data.data);
+        alert('You Registered Successfully');
       })
       .catch((error) => {
         console.log({ error: error.message });
