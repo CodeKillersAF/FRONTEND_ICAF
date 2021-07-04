@@ -6,7 +6,7 @@ function keynoteSpeaker() {
 
   useEffect(() => {
     fetchData();
-  })
+  });
   async function fetchData() {
     await axios.get("/keynotes/get-approved-keynotes").then((response) => {
       setKeynotes(response.data.data);
@@ -20,48 +20,48 @@ function keynoteSpeaker() {
 
   return (
     <div>
-     <div>
+      <div>
         <br />
         <br />
         {/* <section className="sectionDesign"> */}
-        <div class="card text-center">
-            <div class="card-header">
-        <h1>
-            <b>Keynotes</b>
-        </h1>
+        <div className="card text-center">
+          <div className="card-header">
+            <h1>
+              <b>Keynotes</b>
+            </h1>
+          </div>
         </div>
-        </div>
-        {keynotes.map((keynote)=>(
-          <div class="text-center">
-            <div class="header">
-            </div>
+        {keynotes.map((keynote) => (
+          <div className="text-center">
+            <div className="header"></div>
             {/* <div class="card-body"> */}
             <br />
-            
-              <h5 class="card-title">
-                <b>{keynote.speakerName}</b> 
-              </h5>
-              <img
-                src={keynote.speakerImageUrl}
-                class="rounded-circle"
-                width="200px"
-                height="200px"
-                alt="..."
-              ></img><br />
-              
-              <b>{keynote.position}</b><br />
 
-              <p class="card-text">
-                {keynote.description}
-              </p>
-              <br /><br /><br />
-              
+            <h5 className="card-title">
+              <b>{keynote.speakerName}</b>
+            </h5>
+            <img
+              src={keynote.speakerImageUrl}
+              className="rounded-circle"
+              width="200px"
+              height="200px"
+              alt="..."
+            ></img>
+            <br />
+
+            <b>{keynote.position}</b>
+            <br />
+            <div className="container">
+              <p className="card-text">{keynote.description}</p>
+              <br />
+              <br />
+              <br />
             </div>
-            ))}
-          {/* </div> */}
-          {/* </section> */}
           </div>
-          
+        ))}
+        {/* </div> */}
+        {/* </section> */}
+      </div>
     </div>
   );
 }
