@@ -1,18 +1,40 @@
-import React, { Component } from "react";
+import React , { useState }  from "react";
+import axios from "../../axios";
 import "../ContactUsHome/home.css";
 import RoomIcon from "@material-ui/icons/Room";
 import EmailIcon from '@material-ui/icons/Email';
 import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+function contactdetails() {
 
-export default class contactdetails extends Component {
-  constructor(props) {
-    super(props);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+
+  const onSubmitHandle = () => {
+
+    let data = {
+      name: name,
+      email: email,
+      subject: subject,
+      message: message
+    };
+    
+    axios.post('/contact-us/create-a-contact',data)
+    .then(response => {
+      console.log(response.data.data);
+      alert('Your message sent');
+    })
+    .catch(error => {
+      console.log({error: error.message});
+      alert(error.message);
+    })
   }
 
-  render() {
-    return (
-      <div>
+
+  return (
+<div>
         <br />
         <br />
         <br />
@@ -69,6 +91,8 @@ export default class contactdetails extends Component {
                     type="email"
                     className="form-control"
                     id="exampleFormControlInput1"
+                    value = {name}
+                    onChange = {(e) => setName(e.target.value)}
                     placeholder=""
                     required
                   />
@@ -82,6 +106,8 @@ export default class contactdetails extends Component {
                     type="email"
                     className="form-control"
                     id="exampleFormControlInput1"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder=""
                     required
                   />
@@ -92,9 +118,11 @@ export default class contactdetails extends Component {
                     Subject
                   </label>
                   <input
-                    type="email"
+                    type="text"
                     class="form-control"
                     id="exampleFormControlInput1"
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
                     placeholder=""
                     required
                   />
@@ -107,13 +135,16 @@ export default class contactdetails extends Component {
                   <textarea
                     class="form-control"
                     id="exampleFormControlTextarea1"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     rows="3"
+
                     required
                   ></textarea>
                 </div>
 
                 <div class="mb-4">
-                  <button type="submit" className="btn btn-success">
+                  <button type="submit" className="btn btn-success" onClick={onSubmitHandle}>
                     Send Message
                   </button>
                 </div>
@@ -123,7 +154,7 @@ export default class contactdetails extends Component {
         </div>
 
     </div>
-
-    );
-  }
+  )
 }
+
+export default contactdetails

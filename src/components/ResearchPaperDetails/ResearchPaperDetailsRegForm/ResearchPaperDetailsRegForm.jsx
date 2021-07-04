@@ -1,8 +1,22 @@
 import React, { useState } from "react";
-import axios from 'axios';
+import axios from '../../../axios';
 import { storage } from "../../../firebase";
+import { makeStyles } from '@material-ui/core/styles';
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+const useStyles = makeStyles((theme) => ({
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+  },
+}))
+
 
 const RegisterForm = () => {
+
+  const [open, setOpen] = React.useState(false);
+  const classes = useStyles();
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -24,12 +38,14 @@ const RegisterForm = () => {
             researchPaper_url: pdfAsUrl
         }
 
-        axios.post("http://localhost:8080/api/research-paper-publisher/add-research-paper-publisher",data)
+        axios.post("/research-paper-publisher/add-research-paper-publisher",data)
         .then(response => {
             console.log(response.data.data);
+            alert('You are Registered');
         })
         .catch(error => {
             console.log({error: error.message});
+            alert(error.message);
         })
     }
 
@@ -39,7 +55,8 @@ const RegisterForm = () => {
   }
 
   async function uploadFile(e) {
-    e.preventDefault()
+    e.preventDefault();
+    setOpen(!open);
     let bucketName = "researchPaper";
     let uploadTask = storage.ref(`${bucketName}/${file.name}`).put(file);
     await uploadTask.on(
@@ -58,6 +75,7 @@ const RegisterForm = () => {
         .then((firebaseURL) => {
           setPdfAsUrl(firebaseURL);
           console.log(pdfAsUrl);
+          setOpen(false);
           if(pdfAsUrl != ''){
             setPdfUploaded(true);
           }
@@ -69,84 +87,109 @@ const RegisterForm = () => {
   }
 
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label for="exampleInputEmail1" class="form-label">
+    <>
+    <center>
+    <div className="cover-color">
+    <br />
+
+    <Backdrop className={classes.backdrop} open={open}>
+        <CircularProgress color="inherit" />
+        {" "}Uploading....
+      </Backdrop>
+
+    <div className="divideReg">
+    <div className="reg-title">Register Here</div>
+      
+      <form onSubmit={ handleSubmit }>
+        {/* <div className="mb-3">
+          <label for="exampleInputEmail1" className="form-label">
             First Name
-          </label>
-          <input
+          </label> */}
+          <div class="inputs">
+          <input className="reg-input"
             type="text"
-            className="form-control"
+            //className="form-control"
             id="firstname"
             name="firstname"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
-            
+            placeholder="Enter First Name"
           />
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">
+          </div>
+        {/* </div> */}
+        {/* <div className="mb-3">
+          <label for="exampleInputEmail1" className="form-label">
             Last Name
-          </label>
-          <input
+          </label> */}
+         <div class="inputs">
+          <input className="reg-input"
             type="text"
-            className="form-control"
+            //className="form-control"
             id="lastname"
             name="lastname"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
-
+            required
+            placeholder="Enter Last Name"
           />
-        </div>
-        <div className="mb-3">
+        </div><br />
+        {/* <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">
             Email
-          </label>
-          <input
+          </label> */}
+          <input className="reg-input"
             type="email"
-            className="form-control"
+           // className="form-control"
             id="email"
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-
-          />
-        </div>
-        <div className="mb-3">
-          <label for="exampleInputEmail1" className="form-label">
+            required
+            placeholder="Enter Email Address"
+          /> <br />
+        
+        {/* <div className="mb-3">
+          <label for="exampleInputEmail" className="form-label">
             Phone
-          </label>
-          <input
+          </label> */}
+          <input className="reg-input"
             type="tel"
-            className="form-control"
+            //className="form-control"
             id="phone"
             name="phone"
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
             pattern="[0-9]{10}"
-          />
-        </div>
-        <div className="mb-3">
+            onChange={(e) => setPhone(e.target.value)}
+            required
+            placeholder="Enter Telephone Number"
+          /> <br />
+        {/* </div> */}
+        {/* <div className="mb-3">
           <label for="exampleInputEmail" className="form-label">
-            Upload Research Paper
-          </label>
+            Upload Workshop Praposal
+          </label> */}
           <div class="custom-file">
             <input
               type="file"
               className="custom-file-input"
               onChange={onFileSelect}
               required
-            />
-          </div>
+            /> 
+          {/* </div> */}
           <button className="btn btn-primary" onClick = { uploadFile }  >
             Upload File...
           </button>
-        </div>
-        {pdfUpLoaded && <button type="submit" className="btn btn-primary" > Submit </button>}
-        {!pdfUpLoaded && <button type="submit" className="btn btn-primary" disabled> Submit </button>}
+        {/* </div> */}
+        {pdfUpLoaded && <button type="submit" className="reg-button"> Submit </button>}
+        {!pdfUpLoaded && <button type="submit" className="disable-button" disabled> Submit </button>}
+     </div>
       </form>
     </div>
+
+    <br />
+    </div>
+    </center>
+    </>
   );
 };
 
