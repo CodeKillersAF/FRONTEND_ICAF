@@ -9,7 +9,6 @@ const ResearchPaperDetails = () => {
     <div className="container">
       <div className="row">
         <div className="col">
-           <center><h4>Register Form</h4></center>
           <RegisterForm />
         </div>
         <div className="col">
