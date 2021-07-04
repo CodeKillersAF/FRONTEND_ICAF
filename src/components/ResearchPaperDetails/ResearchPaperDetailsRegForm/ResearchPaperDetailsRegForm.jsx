@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from 'axios';
+import axios from '../../../axios';
 import { storage } from "../../../firebase";
 import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -38,12 +38,14 @@ const RegisterForm = () => {
             researchPaper_url: pdfAsUrl
         }
 
-        axios.post("http://localhost:8080/api/research-paper-publisher/add-research-paper-publisher",data)
+        axios.post("/research-paper-publisher/add-research-paper-publisher",data)
         .then(response => {
             console.log(response.data.data);
+            alert('You are Registered');
         })
         .catch(error => {
             console.log({error: error.message});
+            alert(error.message);
         })
     }
 

@@ -1,5 +1,5 @@
 import React , {useState} from 'react';
-import axios from 'axios';
+import axios from '../../axios';
 import { storage } from "../../firebase";
 import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -42,12 +42,14 @@ const RegisterFormAttendee = () => {
 
     console.log(data);
 
-    axios.post("http://localhost:8080/api/attendee/add-attendee",data)
+    axios.post("/attendee/add-attendee",data)
     .then( response => {
       console.log(response.data.data)
+      alert('You are registered');
     })
     .catch( error => {
       console.log({error: error.message})
+      alert(error.message);
     })
 
   }
