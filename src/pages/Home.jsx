@@ -3,9 +3,9 @@ import Jumbotron from '../components/Jumbotron/Jumbotron'
 import { CardIntro } from '../components/Card';
 import CardImage from '../components/CardImage/CardImage';
 import About from '../components/About/About';
-import speaker from 'url:../../public/images/speaker.jpg?&width=990';
-import workshop from 'url:../../public/images/workshop.png?&width=990';
-import main from 'url:../../public/images/main.jpg?&height=500';
+// import speaker from 'url:../../public/images/speaker.jpg?&width=990';
+// import workshop from 'url:../../public/images/workshop.png?&width=990';
+// import main from 'url:../../public/images/main.jpg?&height=500';
 import axios from '../axios';
 // import cover from 'url:../../public/videos/cover.mp4';
 
@@ -57,7 +57,7 @@ export default class Home extends React.Component {
             <>
                 <main>
                     <Jumbotron
-                        image={main}
+                        // image={main}
                         title="ICAF 2021"
                         content="International Conference On Application Framework 2020"
                     />
@@ -106,8 +106,11 @@ export default class Home extends React.Component {
                             candidates will be given the oppurtunity to present their Research papers at the
                                         Conference"
                                 link="/keynote"
-                                image={speaker}
-                            />
+                                // image={speaker}
+                            >
+                        <img className="container-fluid" style={{width:"630px"}} src="https://firebasestorage.googleapis.com/v0/b/icaf-app-aa49c.appspot.com/o/frontend-background-images%2Fspeaker.jpg?alt=media&token=5c1b8f9b-b8e0-4011-a42d-ce3d49c7dd69" alt="sample" />
+
+                                </CardImage>
                             <CardImage
                                 tagclassName="d-inline-block mb-2 text-success"
                                 tag="Workshop" title="Featured events"
@@ -115,8 +118,10 @@ export default class Home extends React.Component {
                                 content="Industry experts will organize workshops on latest trends in
                                         Application Framework."
                                 link="/workshop"
-                                image={workshop}
-                            />
+                                // image={workshop}
+                            >
+                        <img className="container-fluid" src="https://firebasestorage.googleapis.com/v0/b/icaf-app-aa49c.appspot.com/o/frontend-background-images%2Fworkshop.png?alt=media&token=4075a377-92d2-4b69-80c6-fd15c23bb79a" alt="sample" />
+                            </CardImage>
                         </div>
 
                         <About />

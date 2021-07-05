@@ -1,5 +1,5 @@
 import React from 'react';
-import workshop from 'url:../../public/images/workshop.png?&width=990';
+// import workshop from 'url:../../public/images/workshop.png?&width=990';
 import { CardIntro } from '../components/Card';
 import { CardDetail } from '../components/Card';
 import WorkShopRegForm from '../components/WorkShopRegForm/workshopRegForm';
@@ -51,7 +51,7 @@ export default class Workshop extends React.Component {
         return (
             <>
                 <div className="back">
-                    <img className="container-fluid px-0" src={workshop} alt="sample" />
+                    <img className="container-fluid px-0" src="https://firebasestorage.googleapis.com/v0/b/icaf-app-aa49c.appspot.com/o/frontend-background-images%2Fworkshop.png?alt=media&token=4075a377-92d2-4b69-80c6-fd15c23bb79a" alt="sample" />
                 </div>
                 <CardIntro title="Call for Workshop Proposal">
                     <p className="lead mb-4">In addition to exciting technical presentations, tutorials, ICAF 2021 will feature a series of 3 hours of

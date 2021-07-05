@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axios from "../../axios";
 import { storage } from "../../firebase";
 import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -39,7 +39,7 @@ const WorkShopRegForm = () => {
 
     axios
       .post(
-        "http://localhost:8080/api/work-shop-conductor/add-workshop-conductor",
+        "/work-shop-conductor/add-workshop-conductor",
         data
       )
       .then((response) => {

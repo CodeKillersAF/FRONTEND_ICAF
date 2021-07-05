@@ -16,8 +16,8 @@ export default function CardImage(props) {
                         <a href={props.link} className="stretched-link">Continue</a>
                     </div>
                     <div className="col-auto d-none d-lg-block">
-                        <img className="container-fluid" src={props.image} alt="sample" />
-
+                        {/* <img className="container-fluid" src={props.image} alt="sample" /> */}
+                        {props.children}
                     </div>
                 </div>
             </div>

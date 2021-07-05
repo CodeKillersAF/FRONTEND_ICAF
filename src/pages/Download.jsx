@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { CardDetail } from '../components/Card'
 import Button from '../components/Button/Button';
-import axios from 'axios';
+import axios from '../axios';
 
 function Download() {
 
     const [state, setState] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/template/templateAllFront')
+        axios.get('/template/templateAllFront')
          .then((res) => {
             // console.log(res.data);
              setState(res.data.data);

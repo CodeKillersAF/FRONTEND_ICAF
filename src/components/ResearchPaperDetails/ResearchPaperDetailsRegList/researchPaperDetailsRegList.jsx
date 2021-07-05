@@ -1,6 +1,5 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../../../axios";
 import "../researchPaperDetails.css";
 
 
@@ -10,7 +9,7 @@ const RegisterList = () => {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:8000/api/research-paper-publisher/get-approved-research-paper-publishers"
+        "/research-paper-publisher/get-approved-research-paper-publishers"
       )
       .then((response) => {
         console.log(response.data.data);
