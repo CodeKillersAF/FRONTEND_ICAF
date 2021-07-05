@@ -10,7 +10,7 @@ const RegisterList = () => {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:8000/api/research-paper-publisher/get-approved-research-paper-publishers"
+        "http://localhost:8080/api/research-paper-publisher/get-approved-research-paper-publishers"
       )
       .then((response) => {
         console.log(response.data.data);
@@ -24,55 +24,22 @@ const RegisterList = () => {
   return (
     <>
     <br />
+    <center>
+    <div className="reg-title">Pending List</div>
+    </center>
+    <hr />
+    <br />
     <div class="list-group">
+      {approvedAttendees.map((attendee) => (
   <a href="#" class="list-group-item list-group-item-action" aria-current="true">
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small>3 days ago</small>
+      <h5 class="mb-1">{attendee.first_name}</h5>
+      <small>Not Approved</small>
     </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small>And some small print.</small>
+    <p class="mb-1">{attendee.last_name}</p>
+    <small>{attendee.email}</small>
   </a>
-  <a href="#" class="list-group-item list-group-item-action">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small class="text-muted">And some muted small print.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small class="text-muted">And some muted small print.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small>3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small>And some small print.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small>3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small>And some small print.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small>3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small>And some small print.</small>
-  </a>
+  ))}
 </div>
 <br />
 </>
